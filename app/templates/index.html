@@ -1,19 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-</head>
-<body>
-    <!--Popular News Section-->
-    <h3>Popular News Today</h3>
+{% extends 'base.html'  %}
+{% import 'macros.html' as macro %}
+
+{% block content  %}
+
+    <h3>General News Today</h3>
     <ul>
-        {% for popular_news in popular %}
-        <li>
-            {{ popular_news.title  }}
-        </li>
-        {% endfor %}
+        {{ macro.displayNewsList (general) }}
     </ul>
-    
-</body>
-</html>
+<hr>
+    <h3>Sports News Today</h3>
+    <ul>
+        {{ macro.displayNewsList (sports) }}
+    </ul>
+    <hr>
+    <h3>Business News Today</h3>
+    <ul>
+        {{ macro.displayNewsList (business) }}
+    </ul>
+    <hr>
+    <h3>Technology News Today</h3>
+    <ul>
+        {{ macro.displayNewsList (technology) }}
+    </ul>
+    <hr>
+    <h3>Entertainment News Today</h3>
+    <ul>
+        {{ macro.displayNewsList (entertainment) }}
+    </ul>
+    <hr>
+    <h3>Health News Today</h3>
+    <ul>
+        {{ macro.displayNewsList (health) }}
+    </ul>
+    <hr>
+    <h3>Science News Today</h3>
+    <ul>
+        {{ macro.displayNewsList (science) }}
+    </ul>
+ {% endblock  %}   
