@@ -22,8 +22,8 @@ def get_news(category):
         
         news_results = None
         
-        if get_news_response['articles']:
-            news_results_list = get_news_response['articles']
+        if get_news_response['sources']:
+            news_results_list = get_news_response['sources']
             news_results = process_results(news_results_list)
             
     return  news_results 
@@ -35,15 +35,12 @@ def process_results(news_list):
     news_results = []
     for news_item in news_list:
         name = news_item.get('name')
-        author = news_item.get('author')
-        title = news_item.get('title')
         description = news_item.get('description')
         url = news_item.get('url')
-        urlToImage = news_item.get('urlToImage')
-        publishedAt = news_item.get('publishedAt')
+        country = news_item.get('country')
         
-        if urlToImage:
-            news_object = News( name, author, title, description, url, urlToImage,  publishedAt)
+        if url:
+            news_object = News( name, description, url, country)
             news_results.append(news_object)
         
     return news_results    
