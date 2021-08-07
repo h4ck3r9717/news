@@ -1,8 +1,11 @@
+from app.instance.config import NEWS_API_KEY
+
+
 class Config:
     '''
     Configuration parent class
     '''
-    pass
+    NEWS_API_BASE_URL = 'https://newsapi.org/v2/everything?q=Apple&from=2021-08-06&sortBy={}&apiKey={}'
 
 class ProdConfig(Config):
     '''
