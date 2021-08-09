@@ -3,12 +3,14 @@ import urllib.request, json
 from .models import news
 
 News = news.News
+Articles = news.Articles
 
 #Get the api key
 api_key = app.config['NEWS_API_KEY']
 
 #Get news api url
 base_url = app.config['NEWS_API_BASE_URL']
+articles_url = app.config['ARTICLES_URL']
 
 def get_news(category):
     '''
@@ -34,14 +36,50 @@ def process_results(news_list):
     '''       
     news_results = []
     for news_item in news_list:
+        id = news_item.get('id')
         name = news_item.get('name')
         description = news_item.get('description')
         url = news_item.get('url')
         country = news_item.get('country')
         
         if url:
-            news_object = News( name, description, url, country)
+            news_object = News( id, name, description, url, country)
             news_results.append(news_object)
         
     return news_results    
 
+def get_news_articles(id):
+    get_news_articles_url = articles_url.format(id, api_key)
+    
+    with urllib.request.urlopen(get_news_articles_url ) as url:
+        news_articles_data = url.read()
+        news_articles_response = json.loads(news_articles_data)
+        
+        articles_results = None
+        if news_articles_response['articles']:
+            articles_results_list = news_articles_response['articles']
+            articles_results = process_articles(articles_results_list)
+            
+    return articles_results
+
+
+def process_articles(articles_list):
+    '''
+    method for processing the response
+    '''
+    articles_results = []
+    for article_item in articles_list:
+            author = article_item.get('author')
+            title = article_item.get('title')
+            description = article_item.get('description')
+            url = article_item.get('url')
+            urlToImage = article_item.get('urlToImage')
+            publishedAt = article_item.get('publishedAt')
+            
+            if urlToImage:
+                articles_object = Articles(title, description, url, urlToImage, publishedAt, author)
+                articles_results.append(articles_object)
+            
+    return articles_results
+            
+    
