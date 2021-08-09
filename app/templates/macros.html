@@ -7,11 +7,14 @@
                     <div class="details">
                             <h4 class="text-center" style="font-weight: bold; ">{{news.name}}</h4>
                             <p>{{news.description | truncate(100)}}</p>
-                            <p><a href="{{ news.url }}"class="btn btn-primary">View News</a></p>
+                            <!--<p>{{news.country}}</p>-->
+                            <p><a href="/articles/{{news.id}}"class="btn btn-primary">View News</a></p>
                     </div>
             </div>
             </div>
-        </div>
-        
+        </div> 
     {% endfor%}
 {% endmacro %}
+
+
+
