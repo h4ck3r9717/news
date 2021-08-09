@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_news
+from .request import get_news, get_news_articles
 
 #views 
 @app.route('/')
@@ -21,3 +21,11 @@ def index():
     
     title = 'Your Trusted News Sources'
     return render_template('index.html', title = title, general = general_news, sports = sports_news, entertainment = entertainment_news,   health = health_news, business = business_news, technology = tech_news, science = science_news)
+
+@app.route('/articles/<id>')
+def articles(id):
+    '''
+    View article function that returns the articles in a source
+    '''
+    articles = get_news_articles(id)
+    return render_template('articles.html', articles = articles)
