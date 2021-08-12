@@ -28,4 +28,4 @@ def articles(id):
     View article function that returns the articles in a source
     '''
     articles = get_news_articles(id)
-    return render_template('articles.html', articles = articles)
+    return render_template('articles.html', id = id, articles = articles)
