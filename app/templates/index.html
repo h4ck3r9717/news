@@ -1,26 +1,43 @@
 {% extends 'base.html'  %}
 {% import 'macros.html' as macro %}
 
-{% block content  %}
+<!--styles-->
+{% block styles %}
+         {{ super() }}
+         <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}" >
+{% endblock %}
 
-    <h3>General News Today</h3>
-    <ul>
+<!--content-->
+
+{% block content  %}
+<div class="container">
+    <div class="row">
+        <h3 class="news-header text-center">General News Today</h3>
+        <hr>
+    <p>
         {{ macro.displayNewsList (general) }}
-    </ul>
-<hr>
-    <h3>Sports News Today</h3>
-    <ul>
+    </p>  
+    <hr>
+    <h3 class="news-header text-center">Sports News Today</h3>
+    <hr>
+    <p>
         {{ macro.displayNewsList (sports) }}
-    </ul>
+    </p>
     <hr>
-    <h3>Business News Today</h3>
-    <ul>
+    <h3 class="news-header text-center">Business News Today</h3>
+    <hr>
+    <p>
         {{ macro.displayNewsList (business) }}
-    </ul>
+    </p>
     <hr>
-    <h3>Technology News Today</h3>
-    <ul>
+    <h3  class="news-header text-center">Technology News Today</h3>
+    <hr>
+    <p>
         {{ macro.displayNewsList (technology) }}
-    </ul>
+    </p>
+    </div>
+
+</div>
+
    
  {% endblock  %}   
