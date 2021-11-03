@@ -13,7 +13,7 @@ articles_url = None
 
 def configure_request(app):
     global api_key, base_url, articles_url
-    api_key = app.config['NEWS_API_KEY']
+    api_key = 'a2d82a7064654a1cb1aae5f6fd53fede'
     base_url = app.config['NEWS_API_BASE_URL']
     articles_url = app.config['ARTICLES_URL']
     
