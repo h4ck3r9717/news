@@ -2,4 +2,3 @@
 export SECRET_KEY='885522'    
 
 python3.9  manage.py server
-y

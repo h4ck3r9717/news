@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 .error {
-    color: red;
+    color: rgb(0, 255, 136);
     font-family: 'Playfair Display', serif;
 }
