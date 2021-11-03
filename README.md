@@ -17,6 +17,7 @@ To run the newsArticles   App on your machine or server , use the following step
  - The application uses different control flows in python to derive the logic
 
  - it also uses the terminal for most of the operations
+ ## [Live link]( https://shawnnews.herokuapp.com/)
 
 ## Technologies Used.
 Built With This site is built with Python & Flask.
