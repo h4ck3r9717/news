@@ -6,7 +6,6 @@ app = create_app('production')
 
 manager = Manager(app)
 manager.add_command('server', Server)
-@manager.command
 def test():
     '''
     Running the unit tests
